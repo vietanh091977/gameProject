@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Library\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\include;D:\Library\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Library\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\lib\x64;D:\Library\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,13 +108,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Library\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\include;D:\Library\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Library\SDL2_ttf-devel-2.22.0-VC\SDL2_ttf-2.22.0\lib\x64;D:\Library\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;D:\Library\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;D:\Library\SDL2-devel-2.28.5-VC\SDL2-2.28.5\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,7 +134,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="renderWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h" />
+    <ClInclude Include="renderWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
