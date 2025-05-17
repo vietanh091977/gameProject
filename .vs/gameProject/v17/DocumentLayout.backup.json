@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\UET\\2425II_INT2215_6\\gameProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|solutionrelative:renderWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|solutionrelative:game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|solutionrelative:game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|solutionrelative:game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|solutionrelative:renderWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|solutionrelative:renderWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\defs.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|solutionrelative:defs.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E4648A31-B04E-4392-8348-9679BDB0CC37}|gameProject.vcxproj|D:\\UET\\2425II_INT2215_6\\gameProject\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -30,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAAAJYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-11T14:01:00.708Z",
               "IsPinned": true,
@@ -48,13 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "game.cpp",
               "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.cpp",
               "RelativeDocumentMoniker": "game.cpp",
               "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.cpp*",
               "RelativeToolTip": "game.cpp*",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAA0AAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAAAKQAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T03:14:41.628Z",
               "IsPinned": true,
@@ -66,9 +70,9 @@
               "Title": "game.h",
               "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.h",
               "RelativeDocumentMoniker": "game.h",
-              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.h",
-              "RelativeToolTip": "game.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAArAAAAAAAAAA==",
+              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.h*",
+              "RelativeToolTip": "game.h*",
+              "ViewState": "AgIAABMAAAAAAAAAAAAhwCUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-28T02:48:57.71Z",
               "IsPinned": true,
@@ -80,26 +84,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
+              "Title": "defs.h",
+              "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\defs.h",
+              "RelativeDocumentMoniker": "defs.h",
+              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\defs.h",
+              "RelativeToolTip": "defs.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-13T10:28:49.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "renderWindow.h",
               "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.h",
               "RelativeDocumentMoniker": "renderWindow.h",
-              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.h*",
-              "RelativeToolTip": "renderWindow.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.h",
+              "RelativeToolTip": "renderWindow.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-16T07:01:40.402Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "renderWindow.cpp",
               "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.cpp",
               "RelativeDocumentMoniker": "renderWindow.cpp",
               "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.cpp",
               "RelativeToolTip": "renderWindow.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADcAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-16T07:01:51.275Z",
               "EditorCaption": ""

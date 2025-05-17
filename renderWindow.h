@@ -6,10 +6,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <string>
-
-const int SCREEN_WIDTH = 320;
-const int SCREEN_HEIGHT = 480;
-#define WINDOW_TITLE "Tetris"
+#include <unordered_map>
+#include "defs.h"
 
 class RenderWindow {
 public:
@@ -19,10 +17,20 @@ public:
     void clear();
     void render(SDL_Texture* texture, SDL_Rect* src, SDL_Rect* dest);
     void display();
+    void loadAssets();
+
+    SDL_Rect& getHoldRect(SDL_Texture* texture);
+    SDL_Rect& getNextRect(SDL_Texture* texture, int i);
+    void renderHoldBlock(int color);
+    void renderNextBlock(int color, int i);
 
 private:
+    std::unordered_map<int, SDL_Texture*> Whole_Block;
     SDL_Window* window;
     SDL_Renderer* renderer;
+
+    SDL_Rect holdRect;
+    SDL_Rect queueRect[3];
 };
 
 #endif

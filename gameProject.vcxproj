@@ -139,6 +139,7 @@
     <ClCompile Include="renderWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="defs.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="renderWindow.h" />
   </ItemGroup>
