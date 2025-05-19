@@ -10,6 +10,9 @@ Game::Game() {
     running = true;
     dx = 0;
     linesCleared = 0;
+    score = 0;
+    pause = false;
+    gameOver = false;
     rotate = false;
     hardDrop = false;
     hasHeld = false;
@@ -20,11 +23,13 @@ Game::Game() {
     bagIndex = 0;
 
     renderWindow = new RenderWindow(WINDOW_TITLE, SCREEN_WIDTH, SCREEN_HEIGHT);
-    tileTexture = renderWindow->loadTexture("images/tiles.png");
-    backgroundTexture = renderWindow->loadTexture("images/background.png");
-    matrixTexture = renderWindow->loadTexture("images/matrix.png");
-    ghostTexture = renderWindow->loadTexture("images/ghostTiles.png");
+    tileTexture = renderWindow->loadTexture("assets/images/tiles.png");
+    backgroundTexture = renderWindow->loadTexture("assets/images/background.png");
+    matrixTexture = renderWindow->loadTexture("assets/images/matrix.png");
+    ghostTexture = renderWindow->loadTexture("assets/images/ghostTiles.png");
     renderWindow->loadAssets();
+    renderWindow->SetRect();
+    renderWindow->playMusic();
 
     refillBag();
     initQueue();
@@ -44,7 +49,8 @@ void Game::run() {
 
     while (running) {
         startTick = SDL_GetTicks();
-        if (!running) {
+        if (gameOver) {
+            renderWindow->playSoundEffect(GAMEOVER);
             std::cout << "Game Over!" << std::endl;
             return; 
         }
@@ -64,22 +70,30 @@ void Game::handleEvents() {
         if (event.type == SDL_QUIT) running = false;
         else if (event.type == SDL_KEYDOWN) {
             if (event.key.keysym.sym == SDLK_UP) rotate = true;
-            else if (event.key.keysym.sym == SDLK_LEFT) dx = -1;
-            else if (event.key.keysym.sym == SDLK_RIGHT) dx = 1;
+            else if (event.key.keysym.sym == SDLK_LEFT) {
+                dx = -1;
+                renderWindow->playSoundEffect(MOVE);
+            }
+            else if (event.key.keysym.sym == SDLK_RIGHT) {
+                dx = 1;
+                renderWindow->playSoundEffect(MOVE);
+            }
             else if (event.key.keysym.sym == SDLK_SPACE) hardDrop = true;
             else if (event.key.keysym.sym == SDLK_c) {
                 if (!holdUsed) {
+                    renderWindow->playSoundEffect(HOLD);
                     handleHoldBlock();
                     holdUsed = true;
                 }
             }
+            else if (event.key.keysym.sym == SDLK_p) pause = !pause;
         }
     }
     if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_DOWN]) delay = 0.02f;
 }
 
 void Game::update(float deltaTime) {
-    if (!running) return;
+    if (gameOver || pause) return;
     //timer += deltaTime;
 
     updateGhostBlock();
@@ -105,6 +119,8 @@ void Game::update(float deltaTime) {
         if (!checkCollision())
             for (int i = 0; i < 4; i++)
                 a[i] = b[i];
+
+        renderWindow->playSoundEffect(ROTATE);
     }
 
     if (hardDrop) {
@@ -116,6 +132,7 @@ void Game::update(float deltaTime) {
         for (int i = 0; i < 4; i++) {
             field[a[i].y][a[i].x] = color;
         }
+        renderWindow->playSoundEffect(HARD_DROP);
         nextTetromino();
         hardDrop = false;
         holdUsed = false;
@@ -133,6 +150,7 @@ void Game::update(float deltaTime) {
             for (int i = 0; i < 4; i++) {
                 field[b[i].y][b[i].x] = color;
             }
+            renderWindow->playSoundEffect(LOCK);
             nextTetromino();
             holdUsed = false;
         }
@@ -151,7 +169,27 @@ void Game::update(float deltaTime) {
         if (count == N) linesClearedAtOnce++; 
         if (count < N) k--;
     }
+
+    if (linesClearedAtOnce > 0) {
+        renderWindow->playSoundEffect(LINE_CLEAR);
+    }
     linesCleared += linesClearedAtOnce;
+    switch (linesClearedAtOnce) {
+        case 1:
+            score += 40;
+            break;
+        case 2:
+            score += 100;
+            break;
+        case 3:
+            score += 300;
+            break;
+        case 4:
+            score += 1200;
+            break;
+        default:
+            break;
+    }
 
     // Reset movement and rotation flags
     dx = 0;
@@ -161,10 +199,6 @@ void Game::update(float deltaTime) {
     //timer += deltaTime;
 
     updateGhostBlock();
-    if (linesClearedAtOnce > 0) {
-        std::cout << "Lines cleared at once: " << linesClearedAtOnce << std::endl;
-    }
-    std::cout << linesCleared << std::endl;
 }
 
 std::deque<int> queue;
@@ -175,8 +209,8 @@ void Game::render() {
     //updateGhostBlock();
 
     // Draw the frame
-    SDL_Rect matrixDest = { 264, 33, 272, 534 };
-    renderWindow->render(matrixTexture, NULL, &matrixDest);
+    SDL_Rect matrixRect = { MATRIX_POS_X, MATRIX_POS_Y, MATRIX_WIDTH, MATRIX_HEIGHT };
+    renderWindow->render(matrixTexture, NULL, &matrixRect);
     if (hasHeld) {
         renderWindow->renderHoldBlock(holdBlock);
     }
@@ -184,6 +218,9 @@ void Game::render() {
     for (int i = 0; i < 3; i++) {
         renderWindow->renderNextBlock(queue[i] + 1, i);
     }
+
+    renderWindow->renderScoreText(score);
+    renderWindow->renderLinesText(linesCleared); 
 
     SDL_Rect src, dest;
 
@@ -343,6 +380,6 @@ void Game::checkGameOver() {
         }
     }
     if (count == M) {
-        running = false;
+        gameOver = true;
     }
 }

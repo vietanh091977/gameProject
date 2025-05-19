@@ -47,8 +47,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-11T14:01:00.708Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -56,9 +55,9 @@
               "Title": "game.cpp",
               "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.cpp",
               "RelativeDocumentMoniker": "game.cpp",
-              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.cpp*",
-              "RelativeToolTip": "game.cpp*",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAKQAAABSAAAAAAAAAA==",
+              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.cpp",
+              "RelativeToolTip": "game.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T03:14:41.628Z",
               "IsPinned": true,
@@ -70,13 +69,12 @@
               "Title": "game.h",
               "DocumentMoniker": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.h",
               "RelativeDocumentMoniker": "game.h",
-              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.h*",
-              "RelativeToolTip": "game.h*",
-              "ViewState": "AgIAABMAAAAAAAAAAAAhwCUAAAAbAAAAAAAAAA==",
+              "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\game.h",
+              "RelativeToolTip": "game.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-28T02:48:57.71Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T11:28:50.879Z",
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -90,10 +88,9 @@
               "RelativeDocumentMoniker": "defs.h",
               "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\defs.h",
               "RelativeToolTip": "defs.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-13T10:28:49.115Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T11:28:52.627Z"
             },
             {
               "$type": "Document",
@@ -103,10 +100,9 @@
               "RelativeDocumentMoniker": "renderWindow.h",
               "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.h",
               "RelativeToolTip": "renderWindow.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-16T07:01:40.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T11:28:42.425Z"
             },
             {
               "$type": "Document",
@@ -116,10 +112,9 @@
               "RelativeDocumentMoniker": "renderWindow.cpp",
               "ToolTip": "D:\\UET\\2425II_INT2215_6\\gameProject\\renderWindow.cpp",
               "RelativeToolTip": "renderWindow.cpp",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAADcAAABcAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-16T07:01:51.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T11:28:57.237Z"
             }
           ]
         }

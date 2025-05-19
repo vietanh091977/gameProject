@@ -9,6 +9,13 @@
 #include <unordered_map>
 #include "renderWindow.h"
 
+enum GameState {
+    MENU,
+    PLAYING,
+    PAUSING,
+    GAME_OVER
+};
+
 class Game {
 public:
     Game();
@@ -36,7 +43,10 @@ private:
     int holdBlock;
     int linesCleared;
     int linesClearedAtOnce;
+    int score;
     bool running;
+    bool gameOver;
+    bool pause;
     bool hardDrop;
     bool rotate;
     bool hasHeld;
@@ -55,6 +65,8 @@ private:
     SDL_Texture* backgroundTexture;
     SDL_Texture* matrixTexture;
     SDL_Texture* ghostTexture;
+    SDL_Texture* scoreTexture;
+    SDL_Texture* linesTexture;
 };
 
 #endif
