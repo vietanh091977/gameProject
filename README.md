@@ -24,8 +24,8 @@
 | ⬇️           | Soft Drop              |
 | Space        | Hard Drop        |
 | C            | Hold |
-|Z             | Tắt/bật nhạc nền  |
-|X             |Tắt/bật hiệu ứng âm thanh (SFX)|
+|Z             | Bật/tắt nhạc nền  |
+|X             |Bật/tắt hiệu ứng âm thanh (SFX)|
 
 # Các điểm nổi bật
 
@@ -41,9 +41,11 @@
 
 - Các tính năng ***Hold block***, ***Next block*** và ***Ghost block*** giúp hỗ trợ người chơi.
 
+![image](https://github.com/user-attachments/assets/d6283a1f-9769-4233-9d4e-95094c8ef0b1)
+
 - Thuật toán ***7-bag randomizer*** giúp giảm tính "may rủi" của game so với việc dùng hàm `random()` để sinh các khối ngẫu nhiên.
 
-- Độ khó tăng dần khi người chơi chạm tới các ngưỡng điểm cố định.
+- Độ khó tăng dần khi người chơi đạt được các ngưỡng điểm cố định.
 
 - Hệ thống âm thanh:
 
@@ -62,7 +64,7 @@
 
 - Tham khảo Code mẫu trên **[Lazy Foo' Productions](https://lazyfoo.net/tutorials/SDL/index.php)**.
 
-- Tham khảo phần logic chính của game **[Tutorial](https://www.youtube.com/watch?v=zH_omFPqMO4&t=94s)**.
+- Tham khảo phần Logic chính của game **[Tutorial](https://www.youtube.com/watch?v=zH_omFPqMO4&t=94s)**.
 
 - Thuật toán **[7-bag randomizer](https://viblo.asia/p/cung-thu-viet-mot-game-xep-hinh-tetris-hoan-chinh-tu-con-so-0-phan-4-random-7-bag-oOVlYbvB58W)**.
 
