@@ -1,7 +1,1 @@
-﻿  game.cpp
-D:\UET\2425II_INT2215_6\gameProject\game.cpp(163,39): warning C4244: 'argument': conversion from 'float' to 'Uint32', possible loss of data
-D:\UET\2425II_INT2215_6\gameProject\game.cpp(388,19): warning C4244: 'initializing': conversion from 'time_t' to 'unsigned int', possible loss of data
-  main.cpp
-  renderWindow.cpp
-  Generating Code...
-  gameProject.vcxproj -> D:\UET\2425II_INT2215_6\gameProject\x64\Debug\gameProject.exe
+﻿

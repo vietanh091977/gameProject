@@ -40,9 +40,9 @@ bool Game::isRunning() {
 }
 
 void Game::resetGame() {
-    for (int i = 0; i < M; i++) {
-        for (int j = 0; j < N; j++) {
-            field[i][j] = 0;
+    for (int i = 0; i < GRID_HEIGHT; i++) {
+        for (int j = 0; j < GRID_WIDTH; j++) {
+            grid[i][j] = 0;
         }
     }
     nextTetromino();
@@ -256,25 +256,27 @@ void Game::update(float deltaTime) {
 
     // Di chuyển ngang
     for (int i = 0; i < 4; i++) {
-        b[i] = a[i];
-        a[i].x += dx;
+        backup[i] = current[i];
+        current[i].x += dx;
     }
-    if (!checkCollision())
-        for (int i = 0; i < 4; i++)
-            a[i] = b[i];
+    if (!checkCollision()) {
+        for (int i = 0; i < 4; i++) {
+            current[i] = backup[i];
+        }
+    }
 
     // Xoay các khối
     if (rotate) {
-        Point p = a[2]; // Tâm xoay
+        Point p = current[2]; // Tâm xoay
         for (int i = 0; i < 4; i++) {
-            int x = a[i].y - p.y;
-            int y = a[i].x - p.x;
-            a[i].x = p.x - x;
-            a[i].y = p.y + y;
+            int x = current[i].y - p.y;
+            int y = current[i].x - p.x;
+            current[i].x = p.x - x;
+            current[i].y = p.y + y;
         }
         if (!checkCollision()) {
             for (int i = 0; i < 4; i++) {
-                a[i] = b[i];
+                current[i] = backup[i];
             }
         }
         else {
@@ -284,12 +286,12 @@ void Game::update(float deltaTime) {
 
     if (hardDrop) {
         while (checkCollision()) {
-            for (int i = 0; i < 4; i++) a[i].y++;
+            for (int i = 0; i < 4; i++) current[i].y++;
         }
 
-        for (int i = 0; i < 4; i++) a[i].y--;
+        for (int i = 0; i < 4; i++) current[i].y--;
         for (int i = 0; i < 4; i++) {
-            field[a[i].y][a[i].x] = color;
+            grid[current[i].y][current[i].x] = color;
         }
         score += 10 * (level + 1);
         renderWindow->playSoundEffect(HARD_DROP, SFXon);
@@ -301,12 +303,12 @@ void Game::update(float deltaTime) {
     // Di chuyển dọc xuống
     else if (timer > delay) {
         for (int i = 0; i < 4; i++) {
-            b[i] = a[i];
-            a[i].y += 1;
+            backup[i] = current[i];
+            current[i].y += 1;
         }
         if (!checkCollision()) {
             for (int i = 0; i < 4; i++) {
-                field[b[i].y][b[i].x] = color;
+                grid[backup[i].y][backup[i].x] = color;
             }
             renderWindow->playSoundEffect(LOCK, SFXon);
             nextTetromino();
@@ -316,31 +318,31 @@ void Game::update(float deltaTime) {
     }
 
     // Kiểm tra và xoá các hàng đã hoàn thành
-    int k = M - 1;
+    int k = GRID_HEIGHT - 1;
     linesClearedAtOnce = 0;
-    for (int i = M - 1; i >= 0; i--) {
+    for (int i = GRID_HEIGHT - 1; i >= 0; i--) {
         int count = 0;
-        for (int j = 0; j < N; j++) {
-            if (field[i][j]) count++;
-            field[k][j] = field[i][j];
+        for (int j = 0; j < GRID_WIDTH; j++) {
+            if (grid[i][j]) count++;
+            grid[k][j] = grid[i][j];
         }
-        if (count == N) linesClearedAtOnce++;
-        if (count < N) k--;
+        if (count == GRID_WIDTH) linesClearedAtOnce++;
+        if (count < GRID_WIDTH) k--;
     }
 
     switch (level) {   // Tăng độ khó
         case 1:
-            if (linesCleared == 10) {
+            if (linesCleared == 30) {
                 level++;
                 renderWindow->playSoundEffect(LEVELUP, SFXon);
             }
-            else if (linesCleared == 20) {
+            else if (linesCleared == 100) {
                 level++;
                 renderWindow->playSoundEffect(LEVELUP, SFXon);
             }
             break;
         case 2:
-            if (linesCleared == 20) {
+            if (linesCleared == 100) {
                 level++;
                 renderWindow->playSoundEffect(LEVELUP, SFXon);
             }
@@ -414,10 +416,10 @@ void Game::render() {
     SDL_Rect src, dest;
 
     // Draw the playing field
-    for (int i = 0; i < M; i++) {
-        for (int j = 0; j < N; j++) {
-            if (field[i][j] == 0) continue;
-            src = { field[i][j] * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE };
+    for (int i = 0; i < GRID_HEIGHT; i++) {
+        for (int j = 0; j < GRID_WIDTH; j++) {
+            if (grid[i][j] == 0) continue;
+            src = { grid[i][j] * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE };
             dest = { j * TILE_SIZE + BLOCK_RENDER_POS_X, i * TILE_SIZE + BLOCK_RENDER_POS_Y, TILE_SIZE, TILE_SIZE };
             renderWindow->render(tileTexture, &src, &dest);
         }
@@ -433,7 +435,7 @@ void Game::render() {
     // Draw the active tetromino
     for (int i = 0; i < 4; i++) {
         src = { color * TILE_SIZE, 0, TILE_SIZE, TILE_SIZE };
-        dest = { a[i].x * TILE_SIZE + BLOCK_RENDER_POS_X, a[i].y * TILE_SIZE + BLOCK_RENDER_POS_Y, TILE_SIZE, TILE_SIZE };
+        dest = { current[i].x * TILE_SIZE + BLOCK_RENDER_POS_X, current[i].y * TILE_SIZE + BLOCK_RENDER_POS_Y, TILE_SIZE, TILE_SIZE };
         renderWindow->render(tileTexture, &src, &dest);
     }
 
@@ -461,8 +463,8 @@ void Game::nextTetromino() {
     color = num + 1;
 
     for (int i = 0; i < 4; i++) {
-        a[i].x = figures[num][i] % 4 + N / 2 - 1;
-        a[i].y = figures[num][i] / 4;
+        current[i].x = figures[num][i] % 4 + GRID_WIDTH / 2 - 1;
+        current[i].y = figures[num][i] / 4;
     }
 
     if (bagIndex >= bag.size()) refillBag();
@@ -472,16 +474,8 @@ void Game::nextTetromino() {
 
 bool Game::checkCollision() {
     for (int i = 0; i < 4; i++) {
-        if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) return false;
-        else if (a[i].y >= 0 && field[a[i].y][a[i].x]) return false;
-    }
-    return true;
-}
-
-bool Game::checkGhostCollision() {
-    for (int i = 0; i < 4; i++) {
-        if (ghost[i].x < 0 || ghost[i].x >= N || ghost[i].y >= M) return false;
-        else if (ghost[i].y >= 0 && field[ghost[i].y][ghost[i].x]) return false;
+        if (current[i].x < 0 || current[i].x >= GRID_WIDTH || current[i].y >= GRID_HEIGHT) return false;
+        else if (current[i].y >= 0 && grid[current[i].y][current[i].x]) return false;
     }
     return true;
 }
@@ -489,7 +483,7 @@ bool Game::checkGhostCollision() {
 void Game::updateGhostBlock() {
     // Sao chép vị trí của khối hiện tại
     for (int i = 0; i < 4; i++) {
-        ghost[i] = a[i];
+        ghost[i] = current[i];
     }
 
     // Di chuyển xuống sâu nhất có thể
@@ -501,8 +495,8 @@ void Game::updateGhostBlock() {
 
         // Xử lý va chạm của ghost
         for (int i = 0; i < 4; i++) {
-            if (ghost[i].x < 0 || ghost[i].x >= N || ghost[i].y >= M ||
-                (ghost[i].y >= 0 && field[ghost[i].y][ghost[i].x])) {
+            if (ghost[i].x < 0 || ghost[i].x >= GRID_WIDTH || ghost[i].y >= GRID_HEIGHT ||
+                (ghost[i].y >= 0 && grid[ghost[i].y][ghost[i].x])) {
                 canMoveDown = false;
                 break;
             }
@@ -535,8 +529,8 @@ void Game::reset() {
     };
 
     for (int i = 0; i < 4; i++) {
-        a[i].x = figures[color - 1][i] % 4 + N / 2 - 1;
-        a[i].y = figures[color - 1][i] / 4;
+        current[i].x = figures[color - 1][i] % 4 + GRID_WIDTH / 2 - 1;
+        current[i].y = figures[color - 1][i] / 4;
     }
 }
 
@@ -554,9 +548,9 @@ void Game::handleHoldBlock() {
 }
 
 void Game::checkGameOver() {
-    // Kiểm tra xem khối đã đến hàng trên cùng chưa
-    for (int j = 0; j < N; j++) {
-        if (field[0][j]) {
+    // Kiểm tra xem khối chạm đã đến hàng trên cùng chưa
+    for (int j = 0; j < GRID_WIDTH; j++) {
+        if (grid[0][j]) {
             gameRunning = false;
             gameState = GAME_OVER;
             renderWindow->playSoundEffect(GAMEOVER, SFXon);
@@ -568,7 +562,7 @@ void Game::checkGameOver() {
 
     // Kiểm tra xem khối mới có overlap với các khối cũ không
     for (int i = 0; i < 4; i++) {
-        if (a[i].y >= 0 && field[a[i].y][a[i].x]) {
+        if (current[i].y >= 0 && grid[current[i].y][current[i].x]) {
             gameRunning = false;
             gameState = GAME_OVER;
             renderWindow->playSoundEffect(GAMEOVER, SFXon);

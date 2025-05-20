@@ -40,16 +40,14 @@ private:
     void reset();
     void handleHoldBlock();
     void updateGhostBlock();
-    bool checkCollision();
-    bool checkGhostCollision();
     void checkGameOver();
+    bool checkCollision();
 
-    static const int M = 20;
-    static const int N = 10;
-    int field[M][N];
-    struct Point { int x, y; } a[4], b[4], ghost[4];
+    int grid[GRID_HEIGHT][GRID_WIDTH];
+    struct Point { int x, y; } current[4], backup[4], ghost[4];   // current block, backup block and ghost block
     int figures[7][4];
     int dx;
+    int color;
     int holdBlock;
     int linesCleared;
     int linesClearedAtOnce;
@@ -66,7 +64,6 @@ private:
     bool holdUsed;
     bool musicOn;
     bool SFXon;
-    int color;
     float timer;
     float delay;
 
