@@ -70,6 +70,8 @@
 
 - Tham khảo **[Timestepping](https://www.youtube.com/watch?v=RaB60Ujle7o&list=PL2RPjWnJduNmXHRYwdtublIPdlqocBoLS&index=10)**.
 
+- Toàn bộ âm thanh, hình ảnh được lấy từ **[Tetris](https://play.tetris.com/)**.
+
 - Mức độ sử dụng AI: Sử dụng cho mục đích tra cứu và giải thích những phần code chưa hiểu khi tìm hiểu trên các nguồn tham khảo.
 
 - Ngoài ra, không sử dụng Code từ những nguồn không được liệt kê ở trên.
