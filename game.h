@@ -3,10 +3,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <vector>
-#include <unordered_map>
 #include "renderWindow.h"
 
 enum GameState {
@@ -20,9 +16,23 @@ class Game {
 public:
     Game();
     ~Game();
+    GameState gameState;
+    ButtonState playState;
+    ButtonState levelState;
+    ButtonState pauseState;
+    ButtonState resumeState;
+    ButtonState quitState;
+    ButtonState homeState;
+    ButtonState replayState;
+    bool isRunning();
+    bool GameMenu();
+    bool GamePlay();
+    bool GamePause();
+    bool GameOver();
     void run();
 
 private:
+    void resetGame();
     void handleEvents();
     void update(float deltaTime);
     void render();
@@ -44,13 +54,18 @@ private:
     int linesCleared;
     int linesClearedAtOnce;
     int score;
+    int level;
     bool running;
-    bool gameOver;
-    bool pause;
+    bool gameMenuRunning;
+    bool gameRunning;
+    bool gamePausing;
+    bool gameOverRunning;
     bool hardDrop;
     bool rotate;
     bool hasHeld;
     bool holdUsed;
+    bool musicOn;
+    bool SFXon;
     int color;
     float timer;
     float delay;
@@ -59,14 +74,11 @@ private:
     void refillBag();
     void initQueue();
     std::vector<int> bag;
+    std::vector<int> highScores;
         
     RenderWindow* renderWindow;
     SDL_Texture* tileTexture;
-    SDL_Texture* backgroundTexture;
-    SDL_Texture* matrixTexture;
     SDL_Texture* ghostTexture;
-    SDL_Texture* scoreTexture;
-    SDL_Texture* linesTexture;
 };
 
 #endif
